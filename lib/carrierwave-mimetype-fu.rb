@@ -9,7 +9,7 @@ module CarrierWave
         def cache!(new_file = sanitized_file)
           # Only step in on the initial file upload
           opened_file = case new_file
-                          when CarrierWave::Uploader::Download::RemoteFile then
+                          when CarrierWave::Downloader::RemoteFile then
                             new_file.send(:file)
                           when ActionDispatch::Http::UploadedFile then
                             File.open(new_file.path)
